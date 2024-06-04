@@ -1,10 +1,12 @@
 name: Completion estimate reminder comment
 on:
+  issues:
+    types: [opened, edited, reopened]
   issue_comment:
     types: [created, edited]
 jobs:
   add-comment:
-    if: github.event.comment.body == '/hello/'
+    if: github.event.comment.body == 'hello'
     runs-on: ubuntu-latest
     permissions:
       issues: write
