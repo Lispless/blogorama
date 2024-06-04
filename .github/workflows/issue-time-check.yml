@@ -2,6 +2,22 @@ name: Completion estimate reminder comment
 on:
   issues:
     types: [opened, edited, reopened]
+jobs:
+  add-comment:
+    if: github.event.comment.body == 'hello'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Add comment
+        run: gh issue comment "$NUMBER" --body "$BODY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          BODY: >
+            world
+
   issue_comment:
     types: [created, edited]
 jobs:
