@@ -4,7 +4,7 @@ on:
     types: [opened, edited, reopened]
 jobs:
   add-comment:
-    if: github.issue.commented.body == 'hello'
+    if: github.event.comment.body == 'hello'
     runs-on: ubuntu-latest
     permissions:
       issues: write
