@@ -1,10 +1,10 @@
 name: Completion estimate reminder comment
 on:
   issues:
-    types:
-      - opened
+    types: [opened, edited, reopened]
 jobs:
   add-comment:
+    if: github.issue.comment == "Hello"
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -16,4 +16,5 @@ jobs:
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
           BODY: >
-            Testing workflow issue automation.
+            world
+
