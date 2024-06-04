@@ -4,7 +4,7 @@ on:
     types: [opened, edited, reopened]
 jobs:
   add-comment:
-    if: "!contains(github.event.comment.body, 'Estimate:')"
+    if: "!contains(github.event.issue.body, 'Estimate:')"
     runs-on: ubuntu-latest
     permissions:
       issues: write
