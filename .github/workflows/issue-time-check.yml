@@ -16,5 +16,6 @@ jobs:
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
           BODY: >
-            world
+            It seems you may have forgotten to add an estimation
+            for time completion; please add one.
 
